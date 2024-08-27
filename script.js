@@ -4,6 +4,7 @@ const timerIndex = document.getElementById('timer');
 const buttonPlay = document.querySelector('button');
 const playGrid = document.querySelector('.playGrid');
 const randomGrid = document.querySelector('.randomGrid');
+const messageIndex = document.getElementById('message');
 
 ///2.raccolta dati
 // preparo la funzione per i 5 numeri casuali diversi
@@ -23,7 +24,7 @@ function getRandomNumber(min = 1, max = 100, numberQuantity = 5){
 // 3.lavorazione dati
 // invoco la funz e stampo con DOM-API i numeri casuali
 randomNumbers = getRandomNumber();
-console.log(randomNumbers);
+console.log('randomNumbers', randomNumbers);
 
 randomGrid.innerHTML += ''
 for (let i = 0; i < randomNumbers.length; i++){
@@ -33,40 +34,42 @@ for (let i = 0; i < randomNumbers.length; i++){
 }
 
 // implemento un timer di 30 secondi (decremento)
-let countDown = 2;
+let countDown = 3;
 timerIndex.innerText = countDown;
 
 const timer = setInterval ( () => {
-   
     // decremento il timer e stampo
     timerIndex.innerText = --countDown;
     // quando a zero il timer si ferma
     if (countDown === 0) {
         clearInterval(timer);
+        // scaduto il countdwon i numeri e il timer spariscono
         randomGrid.classList.add('display-off')
         timerIndex.classList.add('display-off')
+        // faccio apparire playGrid
         playGrid.classList.remove('display-off')
 
     }
 }, 1000)
-// inizia il countdown di 30 sec
-// scaduto il timer i numeri spariscono
 
 // preparo evento al click
+buttonPlay.addEventListener('click', function (){
+
 // recupero le userValues in un array
-/*
-const userNumber1 = document.querySelector('userNumber1').value;
-const userNumber2 = document.querySelector('userNumber2').value;
-const userNumber3 = document.querySelector('userNumber3').value;
-const userNumber4 = document.querySelector('userNumber4').value;
-const userNumber5 = document.querySelector('userNumber5').value;
+const userNumber1 = parseInt(document.getElementById('userNumber1').value);
+const userNumber2 = parseInt(document.getElementById('userNumber2').value);
+const userNumber3 = parseInt(document.getElementById('userNumber3').value);
+const userNumber4 = parseInt(document.getElementById('userNumber4').value);
+const userNumber5 = parseInt(document.getElementById('userNumber5').value);
 
 const userNumbers = [userNumber1, userNumber2, userNumber3, userNumber4,userNumber5];
-*/
+console.log('userNumbers' , userNumbers);
 // assegno score e message
+let score = 0;
+let message = '';
 // confronto gli elementi dei due array
-// score aumenta o meno
-    
-/// 4.generazione output
+
+// 4.generazione output
 // stampo score e message
 
+})
