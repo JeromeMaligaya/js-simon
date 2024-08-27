@@ -1,7 +1,9 @@
 
 /// 1.recupero l'elemento dal Dom (timer, 5 values, button play)
-const timer = document.getElementById('timer');
+const timerIndex = document.getElementById('timer');
 const buttonPlay = document.querySelector('button');
+const playGrid = document.querySelector('.playGrid');
+const randomGrid = document.querySelector('.randomGrid');
 
 ///2.raccolta dati
 // preparo la funzione per i 5 numeri casuali diversi
@@ -19,8 +21,34 @@ function getRandomNumber(min = 1, max = 100, numberQuantity = 5){
     return result;
 }
 // 3.lavorazione dati
+// invoco la funz e stampo con DOM-API i numeri casuali
+randomNumbers = getRandomNumber();
+console.log(randomNumbers);
+
+randomGrid.innerHTML += ''
+for (let i = 0; i < randomNumbers.length; i++){
+    const div = document.createElement('div')
+    div.append(randomNumbers[i]);
+    randomGrid.appendChild(div);
+}
+
 // implemento un timer di 30 secondi (decremento)
-// invoco la funz e stampo i numeri casuali
+let countDown = 2;
+timerIndex.innerText = countDown;
+
+const timer = setInterval ( () => {
+   
+    // decremento il timer e stampo
+    timerIndex.innerText = --countDown;
+    // quando a zero il timer si ferma
+    if (countDown === 0) {
+        clearInterval(timer);
+        randomGrid.classList.add('display-off')
+        timerIndex.classList.add('display-off')
+        playGrid.classList.remove('display-off')
+
+    }
+}, 1000)
 // inizia il countdown di 30 sec
 // scaduto il timer i numeri spariscono
 
