@@ -1,0 +1,13 @@
+/*css-reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*generics*/
+body{
+    font-family: sans-serif;
+}
+
+/*utilities*/
