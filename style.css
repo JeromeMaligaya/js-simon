@@ -11,3 +11,26 @@ body{
 }
 
 /*utilities*/
+.randomGrid{
+    font-size: 75px;
+    font-weight: bolder;
+}
+
+
+.randomGrid, .playGrid{
+    margin-top: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; 
+}
+
+.playGrid input{
+    height: 50px;
+    
+}
+
+.display-off{
+    display: none;
+}
+
