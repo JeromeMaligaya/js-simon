@@ -82,5 +82,5 @@ for(let i = 0; i < randomNumbers.length; i++){
     
 // 4.generazione output
 // stampo score e message
-
+messageIndex.innerHTML = message;
 })
